@@ -8,7 +8,7 @@ class UserModel extends BaseModel
 {
     protected $table = "ast_user";
 
-    public function user_token()
+    public function userToken()
     {
         return $this->hasOne(UserTokenModel::class, 'user_id', 'id');
     }
