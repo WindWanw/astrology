@@ -26,4 +26,6 @@ class Code
 
     //正常输出
     const NORMAL = 8000;
+
+    const NO_PERMISSION = 9000; //没有权限
 }

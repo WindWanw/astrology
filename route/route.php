@@ -9,12 +9,23 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
-Route::get('think', function () {
-    return 'hello,ThinkPHP5!';
-});
+//index模块组
+Route::group('index', function () {
+    Route::get('index/index', 'index/index')->name('index');
+})->prefix('index/');
 
-Route::get('hello/:name', 'index/hello');
+//admin模块组
+Route::group('admin', function () {
+    Route::post('login', 'login/login')->name('admin.login');
 
-return [
+    //公共组
+    Route::group('common', function () {
+    });
 
-];
+    //测试组
+    Route::group('test', function () {
+        Route::get('index', 'test/index')->name('admin.test.index');
+    })->prefixx('test/');
+})->prefix('admin/')->middleware('validation');
+
+Route::miss('index/index/index');

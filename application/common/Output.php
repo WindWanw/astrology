@@ -40,7 +40,6 @@ class Output
 
     }
 
-
     /**
      * 输出格式
      *
@@ -51,11 +50,11 @@ class Output
     public function outPutJson($data, $code)
     {
         if (is_array($data)) {
-            return json(['code' => $code, 'data' => $data]);
+            return json(['code' => $code, 'data' => $data, 'time' => time()]);
         }
 
         if (is_string($data)) {
-            return json(['code' => $code, 'data' => ['message' => $data]]);
+            return json(['code' => $code, 'data' => ['message' => $data], 'time' => time()]);
         }
 
         \exception('Incorrect data type. Use String or Array', Code::ABNORMAL);
