@@ -17,8 +17,12 @@ class ValidateMiddleware
 
             //验证数据信息
             $res = Validation::process($request);
-        }else{
-            return error('您无权访问该接口！该接口属于私密接口（private）',Code::NO_PERMISSION);
+
+            if (isset($res['error'])) {
+                return error($res['error'], Code::DATA_VALIDATE_FAIL);
+            }
+        } else {
+            return error('您无权访问该接口！该接口属于私密接口（private）', Code::NO_PERMISSION);
         }
 
         return $next($request);

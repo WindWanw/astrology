@@ -15,5 +15,8 @@
 return [
     // 默认中间件命名空间
     'default_namespace' => 'app\\http\\middleware\\',
+    //验证数据
     'validation' => app\http\middleware\ValidateMiddleware::class,
+    //登录用户权限及信息
+    'auth' => app\http\middleware\AuthMiddleware::class,
 ];

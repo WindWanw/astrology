@@ -12,4 +12,9 @@ class UserModel extends BaseModel
     {
         return $this->hasOne(UserTokenModel::class, 'user_id', 'id');
     }
+
+    public function profile()
+    {
+        return $this->hasOne(ProfileModel::class, 'user_id', 'id');
+    }
 }

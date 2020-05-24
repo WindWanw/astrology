@@ -10,6 +10,9 @@ class Code
     //失败
     const FAIL = 4000;
     const USER_DISABLED = 4001; //用户被禁用
+    const DATA_VALIDATE_FAIL = 4002; //数据验证错误
+    const TOKEN_FAIL = 4003; //token失效
+    const LOGIN_FORBID = 4004; //禁止登录
 
     //错误
     const ERROR = 5000;

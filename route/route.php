@@ -22,10 +22,16 @@ Route::group('admin', function () {
     Route::group('common', function () {
     });
 
+    //用户权限组
+    Route::group('auth', function () {
+
+        Route::get('home/getUserInfo', 'home/getUserInfo')->name('auth.home.getUserInfo');
+    })->middleware('auth');
+
     //测试组
     Route::group('test', function () {
         Route::get('index', 'test/index')->name('admin.test.index');
-    })->prefixx('test/');
-})->prefix('admin/')->middleware('validation');
 
-Route::miss('index/index/index');
+        Route::post('setAdminUser','test/setAdminUser')->name('admin.test.setAdminUser');
+    });
+})->prefix('@admin/')->middleware('validation');
