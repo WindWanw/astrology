@@ -14,7 +14,7 @@ class Test extends Base
 
     public function index()
     {
-        p(1);
+        p(config('app.'),'d');
     }
 
     public function setAdminUser()
