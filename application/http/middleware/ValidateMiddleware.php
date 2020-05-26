@@ -9,6 +9,10 @@ class ValidateMiddleware
 {
     public function handle($request, \Closure $next)
     {
+        //如果是请求的接口是配置的默认接口，则不参与验证
+        if (in_array($request->action(), config('default.default_action'))) {
+            return $next($request);
+        }
 
         //验证访问接口是否安全
         $header = $request->header();

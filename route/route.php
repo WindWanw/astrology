@@ -34,6 +34,8 @@ Route::group('admin', function () {
 
     //公共组
     Route::group('common', function () {
+
+        Route::post('uploadFile', 'common/uploadFile')->name('admin.common.uploadFile');
     });
 
     //用户权限组

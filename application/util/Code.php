@@ -13,6 +13,8 @@ class Code
     const DATA_VALIDATE_FAIL = 4002; //数据验证错误
     const TOKEN_FAIL = 4003; //token失效
     const LOGIN_FORBID = 4004; //禁止登录
+    const UPLOAD_FILE_FAIL = 4005; //上传文件失败
+    const UPLOAD_FILE_MISMATCH = 4006; //上传文件不匹配
 
     //错误
     const ERROR = 5000;
