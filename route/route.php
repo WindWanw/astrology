@@ -50,6 +50,19 @@ Route::group('admin', function () {
             Route::post('editAboutInfo', 'about/editAboutInfo')->name('auth.about.editAboutInfo');
 
         });
+
+        Route::group('system', function () {
+
+            Route::get('getWordsList', 'system/getWordsList')->name('auth.system.getWordsList');
+
+            Route::post('addWords', 'system/addWords')->name('auth.system.addWords');
+
+            Route::post('editWords', 'system/editWords')->name('auth.system.editWords');
+
+            Route::get('delWords', 'system/delWords')->name('auth.system.delWords');
+
+        });
+
     })->middleware('auth');
 
     //测试组

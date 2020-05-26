@@ -7,10 +7,12 @@ class Validation
 
     //对应验证器关系
     //模块.控制器.方法=>验证器类.场景
+    //key必须是字符小写
     protected $validator = [
 
         //登录
         'admin.login.login' => 'Request.login',
+        'admin.system.addwords' => 'Request.addWords',
     ];
 
     /**
