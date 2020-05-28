@@ -18,12 +18,19 @@ class About extends Base
         return success(['list' => $list, 'total' => $count]);
     }
 
-    public function addAbout()
+    public function addAboutInfo()
     {
+        $data = input();
+        $data['user_id']=$this->getUserId();
 
+        if (AboutModel::create($data)) {
+            return success('添加成功');
+        }
+
+        return error('添加失败');
     }
 
-    public function editAbout()
+    public function editAboutInfo()
     {
 
     }
