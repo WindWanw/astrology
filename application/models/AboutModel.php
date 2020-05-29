@@ -13,4 +13,19 @@ class AboutModel extends BaseModel
     {
         return $this->belongsTo(UserModel::class, 'user_id', 'id');
     }
+
+    public function profile()
+    {
+        return $this->belongsTo(ProfileModel::class, 'user_id', 'user_id');
+    }
+
+    public function setImageAttr($value)
+    {
+        return setFilePath($value);
+    }
+
+    public function getImageAttr($value)
+    {
+        return getFilePath($value);
+    }
 }

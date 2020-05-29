@@ -75,4 +75,4 @@ Route::group('admin', function () {
     });
 })->prefix('@admin/')->middleware('validation');
 
-// Route::miss('index');
+Route::miss('index');

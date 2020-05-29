@@ -8,12 +8,17 @@ use app\admin\model\About as AboutModel;
 class About extends Base
 {
 
+    public function __construct()
+    {
+        $this->about = AboutModel::getInstance();
+    }
+
     /**
      * 关于我们列表
      */
     public function getAboutList()
     {
-        $query = AboutModel::with('user');
+        $query = $this->about->with('user');
 
         $list = $query->all();
         $count = $query->count();
@@ -29,7 +34,7 @@ class About extends Base
         $data = input();
         $data['user_id'] = $this->getUserId();
 
-        if (AboutModel::create($data)) {
+        if ($this->about->allowField(true)->save($data)) {
             return success('添加成功');
         }
 
@@ -48,7 +53,7 @@ class About extends Base
             'status' => input('status'),
         ];
 
-        if (AboutModel::where('id', input('id'))->update($data)) {
+        if ($this->about->allowField(true)->save($data, ['id' => input('id')])) {
             return success('更新成功');
         }
 

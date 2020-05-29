@@ -14,7 +14,9 @@ class Test extends Base
 
     public function index()
     {
-        p(config('app.'),'d');
+        // p(config('app.'),'d');
+
+        p(auto('你妈'),'d');
     }
 
     public function setAdminUser()

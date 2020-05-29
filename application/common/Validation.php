@@ -12,7 +12,11 @@ class Validation
 
         //登录
         'admin.login.login' => 'Request.login',
+        //添加名单（黑白）
         'admin.system.addwords' => 'Request.addWords',
+        //关于我们
+        'admin.about.addaboutinfo' => 'Request.aboutInfo',
+        'admin.about.editaboutinfo' => 'Request.aboutInfo',
     ];
 
     /**

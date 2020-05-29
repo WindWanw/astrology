@@ -11,6 +11,7 @@
 
 // 应用公共文件
 
+use app\facade\Detection;
 use app\facade\Image;
 use app\facade\Output;
 use app\util\Code;
@@ -146,5 +147,15 @@ if (!function_exists("EOC")) {
         } else {
             return 'EOC'; //'汉英混合';
         }
+    }
+}
+
+/**
+ * 验证字符是否符合规则
+ */
+if (!function_exists("auto")) {
+    function auto($string)
+    {
+        return Detection::automatic($string);
     }
 }

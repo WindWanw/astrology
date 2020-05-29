@@ -62,7 +62,7 @@ class System extends Base
     public function editWords()
     {
 
-        if ($this->word->save(['title' => input('title')], ['id' => input('id')])) {
+        if ($this->word->allowField(true)->save(['title' => input('title')], ['id' => input('id')])) {
             return success('修改成功');
         }
 

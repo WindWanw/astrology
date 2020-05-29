@@ -8,6 +8,11 @@ use app\admin\model\User;
 class Home extends Base
 {
 
+    public function __construct()
+    {
+
+        $this->user = User::getInstance();
+    }
     /**
      * 获取登录用户信息
      */
@@ -16,8 +21,8 @@ class Home extends Base
 
         $uid = $this->getUserId();
 
-        $data = User::with('profile')->find($uid);
+        $data = $this->user->with('profile')->find($uid);
 
-        return success(['list'=>$data]);
+        return success(['list' => $data]);
     }
 }

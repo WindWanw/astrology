@@ -19,7 +19,7 @@ class Detection
     public function getBlackWords()
     {
 
-        return W::where('type', Enum::BLACK_TYPE)->all();
+        return W::where('type', Enum::BLACK_TYPE)->field(['title'])->all()->toArray();
     }
 
     /**
@@ -41,10 +41,10 @@ class Detection
         }
 
         foreach ($words as $key => $value) {
-
-            if (strpos($text, $value)) {
-                return false;
+            if (strpos($text, $value['title']) !== false) {
+                return ['error' => $value['title']];
             }
+
         }
 
         return true;

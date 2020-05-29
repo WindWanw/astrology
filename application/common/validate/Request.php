@@ -16,8 +16,31 @@ class Request extends Validate
         'username' => 'require',
         'password' => 'require',
 
-        'title' => ['require', 'max' => 50],
+        'title' => ['require', 'length' => '0, 50', 'checkWords'],
+
+        'content' => ['require', 'checkWords'],
     ];
+
+    /**
+     * 检测不符合规则
+     *
+     * @param [type] $value
+     * @param string $rule
+     * @param string $data
+     * @param string $field
+     * @param string $dec
+     * @return void
+     */
+    protected function checkWords($value, $rule = '', $data = '', $field = '', $dec = '')
+    {
+        $info = auto($value);
+
+        if (isset($info['error'])) {
+            return "出现不符合规则字符，请修改后再次提交!(不规则字符：{$info['error']})";
+        } else {
+            return $info;
+        }
+    }
 
     /**
      * 定义错误信息
@@ -29,11 +52,12 @@ class Request extends Validate
         'username.require' => '账号不能为空',
         'password.require' => '密码不能为空',
         'title.require' => '标题不能为空',
-        'title.max' => '标题最大不能超过50字符',
+        'title.length' => '标题最大不能超过50字符',
     ];
 
     protected $scene = [
         'login' => ['username', 'password'],
         'addWords' => ['title'],
+        'aboutInfo' => ['title', 'content'],
     ];
 }
