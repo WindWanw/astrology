@@ -19,4 +19,6 @@ return [
     'validation' => app\http\middleware\ValidateMiddleware::class,
     //登录用户权限及信息
     'auth' => app\http\middleware\AuthMiddleware::class,
+    //分页
+    'paginate' => app\http\middleware\PaginateMiddleware::class,
 ];

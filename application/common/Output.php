@@ -49,7 +49,7 @@ class Output
      */
     public function outPutJson($data, $code)
     {
-        if (is_array($data)) {
+        if (is_array($data) || \is_object($data)) {
             return json(['code' => $code, 'data' => $data, 'time' => time()]);
         }
 

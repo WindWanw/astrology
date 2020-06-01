@@ -15,6 +15,8 @@ class Request extends Validate
     protected $rule = [
         'username' => 'require',
         'password' => 'require',
+        'pwd' => 'require',
+        'nickname' => ['require', 'checkWords'],
 
         'title' => ['require', 'length' => '0, 50', 'checkWords'],
 
@@ -51,6 +53,8 @@ class Request extends Validate
     protected $message = [
         'username.require' => '账号不能为空',
         'password.require' => '密码不能为空',
+        'pwd.require' => '密码不能为空',
+        'nickname.require' => '昵称不能为空',
         'title.require' => '标题不能为空',
         'title.length' => '标题最大不能超过50字符',
     ];
@@ -59,5 +63,7 @@ class Request extends Validate
         'login' => ['username', 'password'],
         'addWords' => ['title'],
         'aboutInfo' => ['title', 'content'],
+        'addUser' => ['username', 'pwd', 'nickname'],
+        'editUser' => ['nickname'],
     ];
 }

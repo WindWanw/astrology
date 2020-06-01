@@ -43,9 +43,18 @@ Route::group('admin', function () {
 
         Route::get('home/getUserInfo', 'home/getUserInfo')->name('auth.home.getUserInfo');
 
+        Route::group('user', function () {
+
+            Route::get('getUserList', 'user/getUserList')->name('auth.user.getUserList')->middleware('paginate');
+
+            Route::post('addUserInfo', 'user/addUserInfo')->name('auth.user.addUserInfo');
+
+            Route::post('editUserInfo', 'user/editUserInfo')->name('auth.user.editUserInfo');
+        });
+
         Route::group('about', function () {
 
-            Route::get('getAboutList', 'about/getAboutList')->name('auth.about.getAboutList');
+            Route::get('getAboutList', 'about/getAboutList')->name('auth.about.getAboutList')->middleware('paginate');
 
             Route::post('addAboutInfo', 'about/addAboutInfo')->name('auth.about.addAboutInfo');
 

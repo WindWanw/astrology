@@ -21,33 +21,31 @@
             <div class="widget kopa-widget-course_info">
                 <div class="widget-content module-course_info-02">
                     <div class="row">
-                        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                        <div id="diy-nav-tabs" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
                             <ul class="nav nav-tabs" role="tablist">
-                                {volist name="about" id="item"}
-                                <li class="active">
-                                    <a href="#t{$item.id}" aria-controls="t{$item.id}" role="tab" data-toggle="tab">
-                                        <i class="fa fa-user-plus"></i>
-                                        {$item.title}
+                                {foreach $about as $key=>$value}
+                                <li class="{if $key eq 0}active{/if}">
+                                    <a href="#{$value.id}" aria-controls="{$value.id}" role="tab" data-toggle="tab">
+                                        <!-- <i class="fa fa-user-plus"></i> -->
+                                        {$value.title}
                                     </a>
                                 </li>
-                                {/volist}
+                                {/foreach}
                             </ul>
                         </div>
                         <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
                             <div class="tab-content">
-                                {foreach $about as $key=>$v}
-                             
-                                <div class="tab-pane fade {if $key eq 0}in active{/if}" id="t{$v.id}">
+                                {foreach $about as $key=>$value}
+
+                                <div class="tab-pane fade {if $key eq 0}in active{/if}" id="{$value.id}">
                                     <div class="course-author">
-                                        <div class="thumb">
-                                            <img src="{$v.image}" alt="">
+                                        <div class="thumb diy-thumb">
+                                            <img src="{$value.image}" alt="">
                                         </div>
                                         <div class="content">
-                                            <h4>{$v.profile.name}</h4>
-                                            <span>{$v.profile.identity}</span>
-                                            <div class="text">
-                                                <i class="fa fa-quote-left"></i>
-                                                {$v.content | raw}
+                                            <div class="text diy-content-text"
+                                                title="{:preg_replace('/\<.*?\>/','',$value.content)}">
+                                                {$value.content | raw}
                                             </div>
                                         </div>
                                     </div>

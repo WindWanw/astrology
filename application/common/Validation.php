@@ -17,6 +17,10 @@ class Validation
         //关于我们
         'admin.about.addaboutinfo' => 'Request.aboutInfo',
         'admin.about.editaboutinfo' => 'Request.aboutInfo',
+
+        //后台用户
+        'admin.user.adduserinfo' => 'Request.addUser',
+        'admin.user.edituserinfo' => 'Request.editUser',
     ];
 
     /**

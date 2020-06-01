@@ -11,10 +11,8 @@ class About extends Base
     public function index()
     {
 
-        $about = AboutModel::with(['profile' => function ($query) {
-            $query->field(['user_id', 'name', 'identity']);
-        }])->where('status', 1)->all();
-
+        $about = AboutModel::where('status', 1)->all();
+    
         return view('index', ['about' => $about]);
     }
 }
