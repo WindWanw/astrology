@@ -28,4 +28,13 @@ class AboutModel extends BaseModel
     {
         return getFilePath($value);
     }
+
+    public function getIconAttr($value)
+    {
+        if (empty($value)) {
+            return config('default.default_icon');
+        }
+
+        return $value;
+    }
 }

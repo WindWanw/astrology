@@ -56,4 +56,6 @@ return [
     "translate_api" => "http://fanyi.youdao.com/translate?&doctype=json&type=AUTO&i=",
     //默认通用接口action,小写
     "default_action" => ["uploadfile"],
+    //默认图标
+    "default_icon" => 'iconlvsefenkaicankaoxianban-',
 ];

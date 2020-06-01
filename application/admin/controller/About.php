@@ -8,7 +8,6 @@ use app\admin\model\About as AboutModel;
 class About extends Base
 {
 
-    
     public function __construct()
     {
         $this->about = AboutModel::getInstance();
@@ -20,7 +19,7 @@ class About extends Base
     public function getAboutList()
     {
         $list = $this->about->with('user')->paginate(input('limit'));
-        
+
         return success($list);
     }
 
@@ -46,6 +45,7 @@ class About extends Base
     {
         $data = [
             'title' => input('title'),
+            'icon' => input('icon'),
             'content' => input('content'),
             'image' => input('image'),
             'status' => input('status'),

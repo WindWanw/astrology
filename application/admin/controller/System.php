@@ -3,6 +3,7 @@
 namespace app\admin\controller;
 
 use app\admin\controller\Base;
+use app\admin\model\Spanner;
 use app\admin\model\WordList;
 
 class System extends Base
@@ -12,6 +13,7 @@ class System extends Base
     {
 
         $this->word = WordList::getInstance();
+        $this->spanner = Spanner::getInstance();
     }
 
     /**
@@ -81,5 +83,27 @@ class System extends Base
         }
 
         return error('删除失败');
+    }
+
+    /**
+     * 获取前台导航信息
+     *
+     * @return void
+     */
+    public function getSpannerList()
+    {
+        $list = $this->spanner->paginate(input('limit'));
+
+        return success($list);
+    }
+
+    public function addSpannerInfo()
+    {
+
+    }
+
+    public function editSpannerInfo()
+    {
+
     }
 }
