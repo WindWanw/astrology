@@ -8,6 +8,7 @@ use app\admin\model\User;
 use app\admin\model\UserToken;
 use app\facade\Token;
 use think\DB;
+use think\cache\driver\Redis;
 
 class Test extends Base
 {
@@ -16,7 +17,11 @@ class Test extends Base
     {
         // p(config('app.'),'d');
 
-        p(auto('你妈'),'d');
+        // p(auto('你妈'),'d');
+// p(12);
+        $redis = new Redis();
+
+        p($redis);
     }
 
     public function setAdminUser()
