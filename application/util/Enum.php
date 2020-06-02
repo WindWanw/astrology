@@ -15,4 +15,8 @@ class Enum
     //前后台用户类型
     const USER_TYPE_ADMIN = 1; //后台
     const UERR_TYPE_INDEX = 0; //前台
+
+    //导航状态
+    const STATUS_TRUE = 1; //启用
+    const STATUS_FALSE = 0; //禁用
 }

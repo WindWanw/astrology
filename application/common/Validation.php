@@ -21,6 +21,10 @@ class Validation
         //后台用户
         'admin.user.adduserinfo' => 'Request.addUser',
         'admin.user.edituserinfo' => 'Request.editUser',
+
+        //导航
+        'admin.system.addspannerinfo' => 'Request.addSpanner',
+        'admin.system.editspannerinfo' => 'Request.editSpanner',
     ];
 
     /**

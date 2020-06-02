@@ -21,6 +21,9 @@ class Request extends Validate
         'title' => ['require', 'length' => '0, 50', 'checkWords'],
 
         'content' => ['require', 'checkWords'],
+
+        'en' => ['length' => '0,50', 'alpha', 'upper'],
+        'url' => ['require'],
     ];
 
     /**
@@ -57,6 +60,10 @@ class Request extends Validate
         'nickname.require' => '昵称不能为空',
         'title.require' => '标题不能为空',
         'title.length' => '标题最大不能超过50字符',
+        'en.length' => '英文名称最大不能超过50字符',
+        'en.alpha' => '英文名称必须是英文字母',
+        'en.upper' => '英文必须是大写',
+        'url.require' => '路由名称不能为空',
     ];
 
     protected $scene = [
@@ -65,5 +72,7 @@ class Request extends Validate
         'aboutInfo' => ['title', 'content'],
         'addUser' => ['username', 'pwd', 'nickname'],
         'editUser' => ['nickname'],
+        'addSpanner' => ['title', 'en', 'url'],
+        'editSpanner' => ['title', 'en', 'url'],
     ];
 }

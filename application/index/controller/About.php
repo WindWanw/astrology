@@ -10,6 +10,7 @@ class About extends Base
 
     public function __construct()
     {
+        parent::__construct();
         $this->about = AboutModel::getInstance();
     }
 

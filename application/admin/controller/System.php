@@ -5,6 +5,7 @@ namespace app\admin\controller;
 use app\admin\controller\Base;
 use app\admin\model\Spanner;
 use app\admin\model\WordList;
+use app\util\Code;
 
 class System extends Base
 {
@@ -97,13 +98,44 @@ class System extends Base
         return success($list);
     }
 
+    /**
+     *添加导航信息
+     *
+     * @return void
+     */
     public function addSpannerInfo()
     {
+        $data = input();
 
+        if ($this->spanner->getByTitle(input('title'))) {
+            return error('导航名称重复', Code::DATA_REPEAT);
+        }
+
+        if ($this->spanner->allowField(true)->save($data)) {
+            return success('添加成功');
+        }
+
+        return error('添加失败');
     }
 
+    /**
+     * 修改导航信息
+     *
+     * @return void
+     */
     public function editSpannerInfo()
     {
+        $data = input();
 
+        if ($this->spanner->where('title', input('title'))->where('id', '<>', input('id'))->find()) {
+            return error('导航名称重复', Code::DATA_REPEAT);
+
+        }
+
+        if ($this->spanner->allowField(true)->save($data, input('id'))) {
+            return success('修改成功');
+        }
+
+        return error('修改失败');
     }
 }

@@ -72,7 +72,7 @@ Route::group('admin', function () {
 
             Route::get('delWords', 'system/delWords')->name('auth.system.delWords');
 
-            Route::get('getSpannerList','system/getSpannerList')->name('auth.system.getSpannerList')->middleware('pahinate');
+            Route::get('getSpannerList','system/getSpannerList')->name('auth.system.getSpannerList')->middleware('paginate');
 
             Route::post('addSpannerInfo','system/addSpannerInfo')->name('auth.system.addSpannerInfo');
 

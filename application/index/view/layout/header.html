@@ -35,12 +35,12 @@
                         <div class="pull-right">
                             <nav class="kopa-main-menu style-01">
                                 <ul>
-                                    <li><a href="{:url('index')}">Home</a></li>
+                                    {foreach $spanner as $key=>$value}
+                                    <li><a href="{:url($value.url)}">{$value.en}</a></li>
+                                    {/foreach}
+                                    <!-- <li><a href="{:url('index')}">Home</a></li>
                                     <li><a href="{:url('index.about.index')}">About</a></li>
-                                    <!-- <li><a href="{:url('index.shop.list')}">Shop</a></li> -->
-                                    <!-- <li><a href="single-shop.html">Single-shop</a></li> -->
-                                    <li><a href="{:url('index.blog.list')}">Blog</a></li>
-                                    <!-- <li><a href="single-blog.html">Single-blog</a></li> -->
+                                    <li><a href="{:url('index.blog.list')}">Blog</a></li> -->
                                 </ul>
                             </nav>
                             <div class="kopa-search">
@@ -59,24 +59,20 @@
         </header>
         <div id="kopa-menu-scroll">
             <div class="kopa-close-menu-scroll">
-                <span>close x</span>
+                <span>astrology x</span>
             </div>
             <div class="top-menu-scroll">
                 <div class="kopa-social-links style-03">
                     <ul class="clearfix">
-                        <li><span>Social</span></li>
-                        <li><a href="#" class="fa fa-twitter"></a></li>
-                        <li><a href="#" class="fa fa-google-plus"></a></li>
-                        <li><a href="#" class="fa fa-rss"></a></li>
+                        {foreach $spanner as $key=>$value}
+                        <li><a href="{:url($value.url)}" class="iconfont {$value.icon}"></a></li>
+                        {/foreach}
                     </ul>
                 </div>
                 <ul class="kopa-menu-click">
-                    <li><a href="{:url('index')}">Home</a></li>
-                    <li><a href="{:url('index.about.index')}">About</a></li>
-                    <!-- <li><a href="{:url('index.shop.list')}">Shop</a></li> -->
-                    <!-- <li><a href="single-shop.html">Single-shop</a></li> -->
-                    <li><a href="{:url('index.blog.list')}">Blog</a></li>
-                    <!-- <li><a href="single-blog.html">Single-blog</a></li> -->
+                    {foreach $spanner as $key=>$value}
+                    <li><a href="{:url($value.url)}">{$value.en}</a></li>
+                    {/foreach}
                 </ul>
             </div>
             <form>

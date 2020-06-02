@@ -28,6 +28,7 @@ class Code
     const ABNORMAL = 7000;
     const TOKEN_LENGTH_ABNORMAL = 7001; //token异常
     const KEY_ABNORMAL = 7002; //关键字异常
+    const DATA_REPEAT = 7003; //数据重复
 
     //正常输出
     const NORMAL = 8000;

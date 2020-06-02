@@ -6,5 +6,5 @@ use app\models\SpannerModel;
 
 class Spanner extends SpannerModel
 {
-
+    
 }
