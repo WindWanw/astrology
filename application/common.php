@@ -159,3 +159,13 @@ if (!function_exists("auto")) {
         return Detection::automatic($string);
     }
 }
+
+/**
+ * redis设置的key
+ */
+if (!function_exists('rk')) {
+    function rk($string)
+    {
+        return \app\util\Redis::get($string);
+    }
+}

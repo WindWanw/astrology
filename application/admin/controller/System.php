@@ -12,7 +12,7 @@ class System extends Base
 
     public function __construct()
     {
-
+        parent::__construct();
         $this->word = WordList::getInstance();
         $this->spanner = Spanner::getInstance();
     }
@@ -137,5 +137,32 @@ class System extends Base
         }
 
         return error('修改失败');
+    }
+
+    /**
+     * 设置语言
+     *
+     * @return void
+     */
+    public function setIndexLanguage()
+    {
+
+        if ($this->redis->set(rk('language'), input('language'))) {
+            return success(['message' => '设置成功', 'data' => $this->redis->get(rk('language'))]);
+        }
+
+        return error('设置失败');
+
+    }
+
+    /**
+     * 获取设置的语言
+     *
+     * @return void
+     */
+    public function getIndexLanguage()
+    {
+
+        return success(['data' => $this->redis->get(rk('language'))]);
     }
 }

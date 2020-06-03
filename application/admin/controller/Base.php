@@ -3,13 +3,14 @@
 namespace app\admin\controller;
 
 use think\Controller;
+use think\facade\Cache;
 
 class Base extends Controller
 {
 
     public function __construct()
     {
-        
+        $this->redis = Cache::store('redis');
     }
 
     /*

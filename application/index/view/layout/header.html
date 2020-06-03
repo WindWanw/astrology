@@ -36,7 +36,15 @@
                             <nav class="kopa-main-menu style-01">
                                 <ul>
                                     {foreach $spanner as $key=>$value}
-                                    <li><a href="{:url($value.url)}">{$value.en}</a></li>
+                                    <li>
+                                        <a href="{:url($value.url)}">
+                                            {if ($language==false) OR ($language=='zh-CN')}
+                                            {$value.title}
+                                            {else /}
+                                            {$value.en}
+                                            {/if}
+                                        </a>
+                                    </li>
                                     {/foreach}
                                 </ul>
                             </nav>
@@ -56,7 +64,13 @@
         </header>
         <div id="kopa-menu-scroll">
             <div class="kopa-close-menu-scroll">
-                <span>astrology x</span>
+                <span>
+                    {if ($language==false) OR ($language=='zh-CN')}
+                    占星
+                    {else /}
+                    astrology
+                    {/if}
+                    </span>
             </div>
             <div class="top-menu-scroll">
                 <div class="kopa-social-links style-03">
@@ -68,7 +82,13 @@
                 </div>
                 <ul class="kopa-menu-click">
                     {foreach $spanner as $key=>$value}
-                    <li><a href="{:url($value.url)}">{$value.en}</a></li>
+                    <li><a href="{:url($value.url)}">
+                            {if ($language==false) OR ($language=='zh-CN')}
+                            {$value.title}
+                            {else /}
+                            {$value.en}
+                            {/if}
+                        </a></li>
                     {/foreach}
                 </ul>
             </div>

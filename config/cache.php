@@ -13,13 +13,40 @@
 // | 缓存设置
 // +----------------------------------------------------------------------
 
+// return [
+//     // 驱动方式
+// 'type'   => 'File',
+// // 缓存保存目录
+// 'path'   => '',
+// // 缓存前缀
+// 'prefix' => '',
+// // 缓存有效期 0表示永久缓存
+// 'expire' => 0,
+// ];
+
 return [
     // 驱动方式
-    'type'   => 'File',
-    // 缓存保存目录
-    'path'   => '',
-    // 缓存前缀
-    'prefix' => '',
-    // 缓存有效期 0表示永久缓存
-    'expire' => 0,
+    'type' => 'complex',
+
+    'default' => [
+        'type' => 'File',
+        // 缓存保存目录
+        'path' => '',
+        // 缓存前缀
+        'prefix' => '',
+        // 缓存有效期 0表示永久缓存
+        'expire' => 0,
+    ],
+    'redis' => [
+        'type' => 'redis',
+        'host' => '172.31.253.19',
+        'port' => 6379,
+        'password' => 'astrology',
+        'select' => 0,
+        'timeout' => 0,
+        'expire' => 0,
+        'persistent' => false,
+        'prefix' => '',
+        'serialize' => true,
+    ],
 ];

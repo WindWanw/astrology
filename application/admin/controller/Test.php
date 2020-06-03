@@ -9,19 +9,25 @@ use app\admin\model\UserToken;
 use app\facade\Token;
 use think\DB;
 use think\cache\driver\Redis;
+use think\facade\Cache;
 
 class Test extends Base
 {
 
     public function index()
     {
-        // p(config('app.'),'d');
 
-        // p(auto('你妈'),'d');
-// p(12);
-        $redis = new Redis();
+        // $redis=new Redis();
 
-        p($redis);
+        // // $redis->set('name','ww');
+
+        // // echo 'ok';
+
+        // p($redis);
+
+        Cache::store('redis')->set('name','ww');
+
+        echo 'ok';
     }
 
     public function setAdminUser()

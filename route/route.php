@@ -78,7 +78,9 @@ Route::group('admin', function () {
 
             Route::post('editSpannerInfo', 'system/editSpannerInfo')->name('auth.system.editSpannerInfo');
 
+            Route::post('setIndexLanguage','system/setIndexLanguage')->name('auth.system.setIndexLanguage');
 
+            Route::get('getIndexLanguage','system/getIndexLanguage')->name('auth.system.getIndexLanguage');
         });
 
     })->middleware('auth');
