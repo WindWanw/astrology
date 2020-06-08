@@ -23,7 +23,7 @@ class AuthMiddleware
 
         //是否存在token以及是否存在用户
         if (empty($token) || empty($this->token)) {
-            return error('token已失效', Code::TOKEN_FAIL);
+            return error('您的登录信息已失效，请重新登录！', Code::TOKEN_FAIL);
         }
 
         $this->user = User::find($this->token->user_id);
