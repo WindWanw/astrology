@@ -14,7 +14,7 @@ class Login extends Base
 
     public function register()
     {
-
+        return view();
     }
 
     public function logout()

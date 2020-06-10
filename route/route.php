@@ -15,9 +15,9 @@ Route::group('index', function () {
 
     Route::group('login', function () {
 
-        Route::post('login', 'login/login')->name('index.login.login');
+        Route::get('login', 'login/login')->name('index.login.login');
 
-        Route::post('register', 'login/register')->name('index.login.register');
+        Route::get('register', 'login/register')->name('index.login.register');
 
         Route::get('logout', 'login/logout')->name('index.login.logout');
     });

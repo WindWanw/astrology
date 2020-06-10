@@ -29,7 +29,17 @@ class Base extends Controller
     public function getLanguage()
     {
 
-        $data = Cache::store('redis')->get(rk('language'));
+        $host = [
+            'ast.gold',
+            'www.ast.gold',
+        ];
+
+        if (in_array($_SERVER['HTTP_HOST'], $host)) {
+            $data = Cache::store('redis')->get(rk('language'));
+
+        } else {
+            $data = 'en-US';
+        }
 
         $this->assign('language', $data);
     }
