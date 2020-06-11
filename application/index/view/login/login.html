@@ -6,7 +6,7 @@
             </div>
         </div>
     </section>
-    <section class="kopa-area white-text-style">
+    <section class="kopa-area">
         <div class="container">
             <div class="widget kopa-widget-features">
                 <div class="widget-content module-features-02">
@@ -19,98 +19,69 @@
                                 <div class="diy-body">
                                     <div class="diy-widget-body">
                                         <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                                            <ul class="layui-tab-title">
-                                                <li class="layui-this">网站设置</li>
-                                                <li>用户管理</li>
+                                            <ul class="layui-tab-title diy-tab-title">
+                                                <li class="layui-this col-md-6 col-sm-6 col-xs-12">账号密码登录</li>
+                                                <li class="col-md-6 col-sm-6 col-xs-12">微信扫码登录</li>
                                             </ul>
                                             <div class="layui-tab-content">
-                                                <div class="layui-tab-item layui-show">内容1</div>
-                                                <div class="layui-tab-item">内容2</div>
-                                            </div>
-                                        </div>
-                                        <div class="diy-login-header">
-                                            <h4 id="username" class="active">账号密码登录</h4>
-                                            <h4 id="qrcode">微信扫码登录</h4>
-                                        </div>
-                                        <div class="username-login">
-                                            <form class="layui-form" action="">
-                                                <div class="layui-form-item">
-                                                    <div>
-                                                        <input type="text" name="title" required lay-verify="required"
-                                                            placeholder="账号/手机号/邮箱" autocomplete="off"
-                                                            class="layui-input">
+                                                <div class="layui-tab-item layui-show">
+                                                    <form id="form" class="layui-form" action="">
+
+                                                        <!--隐藏域-->
+                                                        <input type="hidden" name="type" value="0">
+
+                                                        <div class="layui-form-item">
+                                                            <div>
+                                                                <input type="text" name="username" required
+                                                                    placeholder="账号/手机号/邮箱" autocomplete="off"
+                                                                    class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <div>
+                                                                <input type="password" name="password" placeholder="密码"
+                                                                    required autocomplete="off" class="layui-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <div class="diy-layui-input-block">
+                                                                <a href="#">忘记密码?</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-form-item">
+                                                            <button type="button"
+                                                                class="layui-btn layui-btn-fluid layui-btn-radius"
+                                                                onclick="login()">登录</button>
+                                                        </div>
+                                                    </form>
+                                                    <!-- <hr class="layui-bg-blue"> -->
+                                                    <div class="layui-row diy-layui-row">
+                                                        <div class="layui-col-md12">
+                                                            <a href="">
+                                                                免费注册
+                                                                <i class="fa fa-angle-double-right"
+                                                                    aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="layui-form-item">
-                                                    <div>
-                                                        <input type="password" name="password" required
-                                                            lay-verify="required" placeholder="密码" autocomplete="off"
-                                                            class="layui-input">
+                                                <div class="layui-tab-item">
+                                                    <div class="qrcode">
+                                                        <img src="__INDEX__/img/icon/2.png" />
+                                                    </div>
+                                                    <div class="layui-row">
+                                                        <div class="layui-col-md12">
+                                                            <span class="diy-qrcode-note">
+                                                                <p>微信扫码登录</p>
+                                                                <p>如果为注册将主动生成新用户</p>
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="layui-form-item">
-                                                    <div class="diy-layui-input-block">
-                                                        <a href="#">忘记密码?</a>
-                                                    </div>
-                                                </div>
-                                                <div class="layui-form-item">
-                                                    <button type="button"
-                                                        class="layui-btn layui-btn-fluid layui-btn layui-btn-radius">登录</button>
-                                                </div>
-                                            </form>
-                                            <hr class="layui-bg-blue">
-                                        </div>
-                                        <div class="diy-login wx-login">
-                                            <div class="qrcode">
-                                                <img src="__INDEX__/img/icon/2.png" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="widget-body">
-                                    <div class="widget-main diy-widget-body">
-                                        <div class="diy-login-header">
-                                            <h4 id="username" class="active">账号密码登录</h4>
-                                            <h4 id="qrcode">微信扫码登录</h4>
-                                        </div>
-                                        <div class="space-6"></div>
-                                        <div class="username-login">
-                                            <form>
-                                                <fieldset>
-                                                    <label class="block clearfix">
-                                                        <span class="block input-icon input-icon-right">
-                                                            <input type="text" class="form-control"
-                                                                placeholder="账号/手机号/邮箱" />
-                                                            <i class="ace-icon fa fa-user"></i>
-                                                        </span>
-                                                    </label>
-
-                                                    <label class="block clearfix">
-                                                        <span class="block input-icon input-icon-right">
-                                                            <input type="password" class="form-control"
-                                                                placeholder="密码" />
-                                                            <i class="ace-icon fa fa-lock"></i>
-                                                        </span>
-                                                    </label>
-                                                    <div class="space"></div>
-                                                    <div class="clearfix">
-                                                        <button type="button"
-                                                            class="width-100 pull-right btn btn-sm btn-primary">
-                                                            <span class="bigger-120">登录</span>
-                                                        </button>
-                                                    </div>
-
-                                                    <div class="space-4"></div>
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                        <div class="diy-login wx-login">
-                                            <div class="qrcode">
-                                                <img src="__INDEX__/img/icon/2.png" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -121,31 +92,13 @@
 </section>
 
 </div>
-<style>
-    .active {
-        border-bottom: 2px solid #ca0c16;
-    }
 
-    .diy-login {
-        display: none;
-    }
-</style>
+<script>
+    login = () => {
+        post(url('login'), $('#form').serialize(), (res) => {
 
-<script type="text/javascript">
-    $('#username').click(function () {
-        $('#username').addClass('active');
-        $('#qrcode').removeClass('active');
-        $('.wx-login').addClass('diy-login');
-        $('.username-login').removeClass('diy-login');
-    })
-    $('#qrcode').click(function () {
-        $('#qrcode').addClass('active');
-        $('#username').removeClass('active');
-        $('.username-login').addClass('diy-login');
-        $('.wx-login').removeClass('diy-login');
-    })
-    $('.btn').click(function () {
-        layer.msg('hello', { icon: 5 })
-        // layer.alert('tanchuang',{icon:1})
-    })
+            layer.msg(res.data.message)
+            if (res.code) return;
+        });
+    }
 </script>

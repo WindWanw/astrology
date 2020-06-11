@@ -25,6 +25,9 @@ class Validation
         //导航
         'admin.system.addspannerinfo' => 'Request.addSpanner',
         'admin.system.editspannerinfo' => 'Request.editSpanner',
+
+        //api模块
+        'api.login.login' => 'Request.login',
     ];
 
     /**
