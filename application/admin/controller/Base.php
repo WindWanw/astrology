@@ -18,7 +18,7 @@ class Base extends Controller
      */
     public function getUserAuth()
     {
-        return request()->auth;
+        return app('user');
     }
 
     /**
@@ -29,6 +29,6 @@ class Base extends Controller
 
         $auth = $this->getUserAuth();
 
-        return $auth['user_id'];
+        return $auth->uid;
     }
 }

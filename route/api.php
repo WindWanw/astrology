@@ -7,6 +7,7 @@ Route::group('_index', function () {
     //用户权限组
     Route::group('auth', function () {
 
+        Route::get('getUserInfo','login/getUserInfo');
        
 
     })->middleware('auth');

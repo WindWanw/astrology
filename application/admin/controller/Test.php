@@ -8,8 +8,6 @@ use app\admin\model\User;
 use app\admin\model\UserToken;
 use app\facade\Token;
 use think\DB;
-use think\cache\driver\Redis;
-use think\facade\Cache;
 
 class Test extends Base
 {
@@ -25,9 +23,26 @@ class Test extends Base
 
         // p($redis);
 
-        Cache::store('redis')->set('name','ww');
+        // Cache::store('redis')->set('name','ww');
+        $this->getT();
 
-        echo 'ok';
+        // echo 'ok';
+    }
+
+    public function getT()
+    {
+
+        $data = [
+            'zk' => [['title' => '南昌', 'content' => '南昌市']],
+            'em' => [['title' => '九江', 'content' => '九江市']],
+        ];
+
+        $info = json_encode($data);
+
+        $config = json_decode($info, true);
+
+        p($config['zk'][0], $config['zk'][0]['title']);
+
     }
 
     public function setAdminUser()

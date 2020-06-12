@@ -95,10 +95,14 @@
 
 <script>
     login = () => {
-        post(url('login'), $('#form').serialize(), (res) => {
+        post('login', $('#form').serialize(), (res) => {
 
             layer.msg(res.data.message)
             if (res.code) return;
+
+            localStorage.setItem('index_token', res.data.list.token)
+
+
         });
     }
 </script>

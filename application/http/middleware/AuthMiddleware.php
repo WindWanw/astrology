@@ -32,9 +32,13 @@ class AuthMiddleware
             return error('用户被禁止登录', Code::LOGIN_FORBID);
         }
 
-        $request->auth = [
-            'user_id' => $this->user->id,
-        ];
+        bind('user', function () {
+
+            $u = new \stdClass();
+            $u->uid = $this->user->id;
+
+            return $u;
+        });
 
         return $next($request);
     }
