@@ -16,9 +16,4 @@ class Login extends Base
     {
         return view();
     }
-
-    public function logout()
-    {
-
-    }
 }

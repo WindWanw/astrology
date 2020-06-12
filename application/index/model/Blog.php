@@ -2,6 +2,9 @@
 
 namespace app\index\model;
 
-class Blog{
-    
+// use app\models\BlogModel;
+
+class Blog
+{
+
 }

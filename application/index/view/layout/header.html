@@ -3,6 +3,7 @@
         <header class="kopa-header-01">
             <div class="container">
                 <div class="top-header">
+                    {if ($isLogin===false)}
                     <div class="kopa-login">
                         <a href="{:url('index.login.login')}">
                             <i class="fa fa-sign-in"></i>
@@ -15,13 +16,15 @@
                             register
                         </a>
                     </div>
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
+                    {else /}
+                    <div class="kopa-register diy-username" style="float: right;">
+                        <a class="diy-login">
+                            <img class="diy-avatar" src="{$myUser.avatar}" onclick="getInfo()" />
+                            <span class="diy-user-name">{$myUser.nickname ?? $myUser.username}</span>
+                            <span class="diy-login-out"><i class="fa fa-sign-out" onclick="logout()"></i></span>
+                        </a>
+                    </div>
+                    {/if}
                 </div>
                 <div class="bottom-header style-01">
                     <div class="clearfix">
@@ -70,7 +73,7 @@
                     {else /}
                     astrology
                     {/if}
-                    </span>
+                </span>
             </div>
             <div class="top-menu-scroll">
                 <div class="kopa-social-links style-03">
@@ -114,3 +117,20 @@
                 </div>
             </div>
         </div>
+
+
+        <script>
+            getInfo = () => {
+                window.location.href = "#"
+            }
+            logout = () => {
+                get('logout', {}, function (res) {
+                    if (res.code) {
+                        layer.msg(res.data.message)
+                        return;
+                    }
+                    localStorage.clear('index_token');
+                    window.location.href = "{:url('index/index')}"
+                })
+            }
+        </script>

@@ -60,6 +60,8 @@ class Login extends Base
 
             $data = $this->token->where('user_id', $user->id)->field('token')->find();
 
+            session('uid', $user->id);
+
             return success(['list' => $data, 'message' => '登录成功']);
 
         } catch (\Exception $e) {
@@ -79,5 +81,13 @@ class Login extends Base
         $user = $this->user->with('profile')->find($this->getUserId());
 
         return success($user);
+    }
+
+
+    public function logout(){
+
+        session('uid',null);
+
+        return success('成功');
     }
 }

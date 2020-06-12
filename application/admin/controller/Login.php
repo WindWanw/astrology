@@ -50,7 +50,7 @@ class Login extends Base
 
             $u->where('id', $user->id)->update(['login_ip' => \getIpAddress()]);
 
-            $data = $u->with(['user_token' => function ($query) {
+            $data = $u->with(['token' => function ($query) {
                 $query->field(['user_id', 'token']);
             }])
                 ->field(['id', 'username', 'password', 'nickname', 'avatar'])

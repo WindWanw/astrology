@@ -39,12 +39,10 @@
     <script>
         //页面加载调取用户信息
         window.onload = () => {
-            get('getUserInfo', {}, res => {
+            // get('getUserInfo', {}, res => {
 
-                console.log(res)
-                if(res.code) return;
-                localStorage.setItem('user',JSON.stringify(res.data))
-            })
+                
+            // })
         }
     </script>
 
