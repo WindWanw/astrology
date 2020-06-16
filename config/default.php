@@ -36,6 +36,8 @@ return [
     "default_avatar" => "/static/default/avatar.jpg",
     //默认图片
     "default_image" => "/static/default/image.jpg",
+    //标志图片
+    "default_sign" => '/static/default/sign.jpg',
     //默认上传类型
     "default_type" => ["image", "file", "audio"],
     //默认上传图片大小(2M)
@@ -55,7 +57,7 @@ return [
     //翻译api
     "translate_api" => "http://fanyi.youdao.com/translate?&doctype=json&type=AUTO&i=",
     //默认通用接口action,小写
-    "default_action" => ["uploadfile","getwxqrcode"],
+    "default_action" => ["uploadfile", "getwxqrcode"],
     //默认图标
     "default_icon" => 'iconlvsefenkaicankaoxianban-',
 ];

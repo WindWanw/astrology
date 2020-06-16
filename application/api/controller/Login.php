@@ -97,26 +97,26 @@ class Login extends Base
 
         $config = [
             'logo' => true,
-            'logo_url' => config("default.default_host") . config("default.default_image"),
+            'logo_url' => config("default.default_host") . config("default.default_avatar"),
             'logo_size' => 80,
             'generate' => 'writefile',
         ];
 
         $q = new Qrcode($config);
 
-        // $data = [
-        //     'message' => '',
-        //     'uuid' => \getUniqueId(),
-        //     'url' => '',
-        // ];10
-
-        // $content = \json_encode($data);
+        // $content=json_encode(['message'=>'个人网站暂不开放微信扫码登录']);
 
         $content = config('default.default_host') . 'h5/login?uuid=' . \getUniqueId();
 
-
         $img = $q->create($content);
 
-        return success(['img' => $img['data']['url']]);
+
+        if (!empty($img['data'])) {
+            return success(['img' => $img['data']['url']]);
+
+        }
+
+        return error($img['message']);
+
     }
 }

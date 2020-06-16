@@ -3,22 +3,49 @@
 
 <head>
 
-    <title>HTML基本标签</title>
-    <link rel="icon" href="img/icon.png" />
+    <link rel="icon" href="static/default/sign.jpg" />
 
     <meta charset="UTF-8" />
-    <meta name="author" content="huxuepeng" />
-    <meta name="keywords" content="HTML5,网页，Web前端开发" />
+    <meta name="author" content="ww" />
+    <meta name="keywords" content="微信扫码登录h5确定页面" />
     <!--多个关键字用逗号隔开-->
-    <meta name="description" content="这是我开发的第一个网页" />
+    <meta name="description" content="微信扫码登录h5确定页面" />
     <!--网页描述，搜索网站时，title下面的解释文字，至关重要-->
-    <title></title>
+    <title>Astrology</title>
 </head>
 
 <body>
-    <!---->
-    日照香炉生紫烟，遥看瀑布挂前川；<p/>
-    飞流直下三千尺，疑似银河落九天。
+    <div class="main" onclick="goback()">
+        <div class="content">
+            <img src="http://www.ast.gold/static/default/qrcode-login.jpg" />
+        </div>
+    </div>
 </body>
 
 </html>
+<script>
+    goback = () => {
+        window.location.href = "http://www.ast.gold";
+    }
+</script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+    }
+
+    .content {
+        width: 100%;
+        height: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
