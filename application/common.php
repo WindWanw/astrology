@@ -169,3 +169,13 @@ if (!function_exists('rk')) {
         return \app\util\Redis::get($string);
     }
 }
+
+/**
+ * 生成唯一id
+ */
+if (!function_exists('getUniqueId')) {
+    function getUniqueId($prefix = 'astrology_')
+    {
+        return md5(uniqid($prefix));
+    }
+}

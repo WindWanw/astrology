@@ -6,6 +6,7 @@ use app\api\controller\Base;
 use app\api\model\Profile;
 use app\api\model\User;
 use app\api\model\UserToken;
+use app\common\Qrcode;
 use app\facade\Token;
 use app\util\Code;
 use app\util\Enum;
@@ -83,11 +84,39 @@ class Login extends Base
         return success($user);
     }
 
+    public function logout()
+    {
 
-    public function logout(){
-
-        session('uid',null);
+        session('uid', null);
 
         return success('成功');
+    }
+
+    public function getWXqrcode()
+    {
+
+        $config = [
+            'logo' => true,
+            'logo_url' => config("default.default_host") . config("default.default_image"),
+            'logo_size' => 80,
+            'generate' => 'writefile',
+        ];
+
+        $q = new Qrcode($config);
+
+        // $data = [
+        //     'message' => '',
+        //     'uuid' => \getUniqueId(),
+        //     'url' => '',
+        // ];10
+
+        // $content = \json_encode($data);
+
+        $content = config('default.default_host') . 'h5/login?uuid=' . \getUniqueId();
+
+
+        $img = $q->create($content);
+
+        return success(['img' => $img['data']['url']]);
     }
 }

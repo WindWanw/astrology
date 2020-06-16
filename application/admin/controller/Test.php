@@ -8,6 +8,7 @@ use app\admin\model\User;
 use app\admin\model\UserToken;
 use app\facade\Token;
 use think\DB;
+use think\facade\Cache;
 
 class Test extends Base
 {
@@ -15,18 +16,21 @@ class Test extends Base
     public function index()
     {
 
-        // $redis=new Redis();
+        $this->_run();
+    }
 
-        // // $redis->set('name','ww');
+    public function _run()
+    {  
+        echo '123';
+        // $this->getRedis();
 
-        // // echo 'ok';
+    }
 
-        // p($redis);
+    private function getRedis()
+    {
+        $redis = Cache::store('redis');
 
-        // Cache::store('redis')->set('name','ww');
-        $this->getT();
-
-        // echo 'ok';
+        p($redis->get('astrology_language'));
     }
 
     public function getT()

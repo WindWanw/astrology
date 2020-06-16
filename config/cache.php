@@ -39,7 +39,7 @@ return [
     ],
     'redis' => [
         'type' => 'redis',
-        'host' => '172.31.253.19',
+        'host' => '47.57.29.171',
         'port' => 6379,
         'password' => 'astrology',
         'select' => 0,
