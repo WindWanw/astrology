@@ -100,6 +100,7 @@ class Login extends Base
             'logo_url' => config("default.default_host") . config("default.default_avatar"),
             'logo_size' => 80,
             'generate' => 'writefile',
+            'file_name' => 'static/qrcode/' . date('Ymd', time()),
         ];
 
         $q = new Qrcode($config);
@@ -109,7 +110,6 @@ class Login extends Base
         $content = config('default.default_host') . 'h5/login?uuid=' . \getUniqueId();
 
         $img = $q->create($content);
-
 
         if (!empty($img['data'])) {
             return success(['img' => $img['data']['url']]);

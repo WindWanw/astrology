@@ -4,8 +4,10 @@ namespace app\admin\controller;
 
 use app\admin\controller\Base;
 use app\admin\model\Spanner;
+use app\admin\model\System as SY;
 use app\admin\model\WordList;
 use app\util\Code;
+use app\util\config\Icache;
 
 class System extends Base
 {
@@ -164,5 +166,40 @@ class System extends Base
     {
 
         return success(['data' => $this->redis->get(rk('language'))]);
+    }
+
+    /**
+     * 获取图片缓存类型
+     *
+     * @return void
+     */
+    public function getImageCacheType()
+    {
+        return success(Icache::get('image_cache_position'));
+    }
+
+    /**
+     * 清除图片缓存
+     *
+     * @return void
+     */
+    public function clearImageCache()
+    {
+        $type = input('type');
+
+        foreach ($type as $key => $value) {
+
+            switch ($value) {
+                case 'qrcode':
+                    SY::clearQrcodeImageCache('./static/qrcode/');
+                    break;
+                case 'image':
+                    SY::clearUploadImageCache();
+                    break;
+            }
+        }
+
+        return success('清除缓存成功');
+
     }
 }

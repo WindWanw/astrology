@@ -53,6 +53,10 @@ Route::group('admin', function () {
             Route::post('setIndexLanguage', 'system/setIndexLanguage')->name('auth.system.setIndexLanguage');
 
             Route::get('getIndexLanguage', 'system/getIndexLanguage')->name('auth.system.getIndexLanguage');
+
+            Route::get('getImageCacheType', 'system/getImageCacheType');
+
+            Route::post('clearImageCache', 'system/clearImageCache');
         });
 
     })->middleware('auth');
