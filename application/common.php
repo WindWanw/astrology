@@ -171,11 +171,64 @@ if (!function_exists('rk')) {
 }
 
 /**
- * 生成唯一id
+ * 转换时间
+ *
+ * @param [type] $time
+ * @return void
  */
-if (!function_exists('getUniqueId')) {
-    function getUniqueId($prefix = 'astrology_')
+
+if (!function_exists('getTranTime')) {
+    function getTranTime($time)
     {
-        return md5(uniqid($prefix));
+
+        $_time = is_timestamp($time, false); //处理传入的值
+
+        $now = time(); //获取当前的值
+
+        $diff = $now - $_time; //获取差值
+
+        //如果当前和传入的时间相差30天，则输出原本时间
+        if ($diff > 60 * 60 * 24 * 30) {
+            return date("Y-m-d H:i", $_time);
+        }
+
+        $day = floor($diff / (60 * 60 * 24));
+
+        if ($day) {
+
+            if ($day < 7) {
+                return $day . "天前";
+            } else if (floor($day / 7)) {
+                return $day . "周前";
+            }
+
+        } else if ($hour = floor($day / (60 * 60))) {
+
+            return $hour . "小时前";
+        } else if ($minute = floor($hour / 60)) {
+            return $minute . "分钟前";
+        }
+    }
+}
+
+/**
+ * 判断传入的是否是时间戳，以及输出时间戳
+ *
+ * @param [type] $time
+ * @param boolean $type：true则判断，false则输出
+ * @return boolean
+ */
+if (!function_exists('is_timestamp')) {
+    function is_timestamp($time, $type = true)
+    {
+
+        if ($type) {
+            return empty(\strtotime($time)) ? true : false;
+
+        } else {
+            return empty(\strtotime($time)) ? $time : \strtotime($time);
+
+        }
+
     }
 }

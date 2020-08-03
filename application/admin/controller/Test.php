@@ -8,7 +8,6 @@ use app\admin\model\User;
 use app\admin\model\UserToken;
 use app\facade\Token;
 use think\DB;
-use think\facade\Cache;
 
 class Test extends Base
 {
@@ -16,37 +15,27 @@ class Test extends Base
     public function index()
     {
 
+        $this->Tcontainer();
         $this->_run();
     }
 
-    public function _run()
-    {  
-        echo '123';
-        // $this->getRedis();
-
+    private function _run()
+    {
+        p(app('app\util\Token'));
     }
 
-    private function getRedis()
-    {
-        $redis = Cache::store('redis');
-
-        p($redis->get('astrology_language'));
-    }
-
-    public function getT()
+    public function Tcontainer()
     {
 
-        $data = [
-            'zk' => [['title' => '南昌', 'content' => '南昌市']],
-            'em' => [['title' => '九江', 'content' => '九江市']],
-        ];
+        bind('app\util\Token', function () {
 
-        $info = json_encode($data);
+            $u = new \stdClass();
 
-        $config = json_decode($info, true);
+            $u->uid = 1;
+            $u->time=time();
 
-        p($config['zk'][0], $config['zk'][0]['title']);
-
+            return $u;
+        });
     }
 
     public function setAdminUser()

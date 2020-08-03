@@ -3,6 +3,8 @@
 //admin模块组
 Route::group('admin', function () {
     Route::post('login', 'login/login')->name('admin.login');
+    Route::post('yoga', 'login/addYoga')->name('admin.yoga');
+
 
     //公共组
     Route::group('common', function () {

@@ -66,6 +66,30 @@
             </div>
         </header>
         <div id="kopa-menu-scroll">
+            <div class="kopa-close-login-scroll">
+                {if ($isLogin===false)}
+                <div class="kopa-login">
+                    <a href="{:url('index.login.login')}">
+                        <i class="fa fa-sign-in"></i>
+                        login
+                    </a>
+                </div>
+                <div class="kopa-register">
+                    <a href="{:url('index.login.register')}">
+                        <i class="fa fa-unlock"></i>
+                        register
+                    </a>
+                </div>
+                {else /}
+                <div class="kopa-register diy-username" style="float: right;">
+                    <a class="diy-login">
+                        <img class="diy-avatar" src="{$myUser.avatar}" onclick="getInfo()" />
+                        <span class="diy-user-name">{$myUser.nickname ?? $myUser.username}</span>
+                        <span class="diy-login-out"><i class="fa fa-sign-out" onclick="logout()"></i></span>
+                    </a>
+                </div>
+                {/if}
+            </div>
             <div class="kopa-close-menu-scroll">
                 <span>
                     {if ($language==false) OR ($language=='zh-CN')}

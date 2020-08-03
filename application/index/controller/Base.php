@@ -63,7 +63,9 @@ class Base extends Controller
     public function getLanguage()
     {
 
-        $data = Cache::store('redis')->get(rk('language'));
+        // $data = Cache::store('redis')->get(rk('language'));
+
+        $data="";
 
         $this->assign('language', $data);
     }

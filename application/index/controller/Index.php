@@ -16,4 +16,9 @@ class Index extends Base
         return view();
     }
 
+    public function yj()
+    {
+        return view();
+    }
+
 }

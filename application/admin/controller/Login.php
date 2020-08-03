@@ -3,13 +3,12 @@
 namespace app\admin\controller;
 
 use app\admin\controller\Base;
-use app\admin\model\Profile;
 use app\admin\model\User;
 use app\admin\model\UserToken;
+use app\admin\model\Yoga;
 use app\facade\Token;
 use app\util\Code;
 use app\util\Enum;
-use think\DB;
 
 class Login extends Base
 {
@@ -38,7 +37,6 @@ class Login extends Base
             return error('用户账号被禁用', Code::USER_DISABLED);
         }
 
-
         try {
             //登录成功则跟新token表
             $t_data = [
@@ -62,5 +60,20 @@ class Login extends Base
             return error($e);
         }
 
+    }
+
+    public function addYoga()
+    {
+
+        $y = Yoga::getInstance();
+
+        $y->title = input("title");
+        $y->content = input("content");
+
+        if ($y->save()) {
+            return success(['id' => $y->id, 'message' => '添加成功！点击查看']);
+        }
+
+        return error("添加失败，请联系开发人员！");
     }
 }
